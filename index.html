@@ -1,11 +1,22 @@
-<p id="dateTextLine1"></p>
-<p id="dateTextLine2"></p>
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="dateText"></p>
 
 <script>
+  // Get the current date
   const today = new Date();
-  const cutoff = new Date('2025-10-06T23:59:59');
-  const after = today > cutoff;
 
-  document.getElementById("dateTextLine1").textContent = after ? "after the 6th" : "before the 6th";
-  document.getElementById("dateTextLine2").textContent = after ? "line 2" : "line 2";
+  // Define the cutoff date (6th October 2025, midnight)
+  const cutoff = new Date('2025-10-06T23:59:59');
+
+  // Compare the two dates
+  const text = today > cutoff ? "after the 6th" : "before the 6th";
+
+  // Display the result
+  document.getElementById("dateText").textContent = text;
 </script>
+
+</body>
+</html>
