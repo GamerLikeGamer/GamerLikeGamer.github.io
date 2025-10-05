@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>NFC Test</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <h1 id="headline">Welcome — default text</h1>
+  <script>
+    // Simple helper to get URL params
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    const nfcToken = getParam('nfc');
+    // Replace this with the token you wrote to your tag.
+    // If you have multiple tags, keep a short whitelist array.
+    const allowed = [
+      'TAG_LONG_RANDOM_TOKEN_ABC123',
+      // 'ANOTHER_TOKEN_...' // add more if needed
+    ];
+
+    if (nfcToken && allowed.includes(nfcToken)) {
+      document.getElementById('headline').textContent = 'Hello — you used the NFC tag!';
+    } else if (nfcToken) {
+      document.getElementById('headline').textContent = 'Unknown NFC token';
+    }
+  </script>
+</body>
+</html>
