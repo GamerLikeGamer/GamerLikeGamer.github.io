@@ -1,31 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>NFC Test</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-</head>
 <body>
-  <h1 id="headline">Welcome — default text</h1>
-  <script>
-    // Simple helper to get URL params
-    function getParam(name) {
-      return new URLSearchParams(window.location.search).get(name);
-    }
 
-    const nfcToken = getParam('nfc');
-    // Replace this with the token you wrote to your tag.
-    // If you have multiple tags, keep a short whitelist array.
-    const allowed = [
-      'TAG_LONG_RANDOM_TOKEN_ABC123',
-      // 'ANOTHER_TOKEN_...' // add more if needed
-    ];
+<p id="dateText"></p>
 
-    if (nfcToken && allowed.includes(nfcToken)) {
-      document.getElementById('headline').textContent = 'Hello — you used the NFC tag!';
-    } else if (nfcToken) {
-      document.getElementById('headline').textContent = 'Unknown NFC token';
-    }
-  </script>
+<script>
+  // Get the current date
+  const today = new Date();
+
+  // Define the cutoff date (6th October 2025, midnight)
+  const cutoff = new Date('2025-10-06T23:59:59');
+
+  // Compare the two dates
+  const text = today > cutoff ? "after the 6th" : "before the 6th";
+
+  // Display the result
+  document.getElementById("dateText").textContent = text;
+</script>
+
 </body>
 </html>
