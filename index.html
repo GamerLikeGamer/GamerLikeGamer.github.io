@@ -2,8 +2,9 @@
 <html>
 <body>
 
-<p id="dateText"></p>
-
+<p id="dateText1"></p>
+<p id="dateText2"></p>
+  
 <script>
   // Get the current date
   const today = new Date();
@@ -12,10 +13,12 @@
   const cutoff = new Date('2025-10-06T23:59:59');
 
   // Compare the two dates
-  const text = today > cutoff ? "after the 6th" : "before the 6th";
-
+  const line1 = today > cutoff ? "you didnt check this on your birthday :(" : "before the 6th";
+  const line2 = today > cutoff ? "" : ":)";
+  
   // Display the result
-  document.getElementById("dateText").textContent = text;
+  document.getElementById("dateText1").textContent = line1;
+  document.getElementById("dateText2").textContent = line2;
 </script>
 
 </body>
