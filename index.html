@@ -5,7 +5,6 @@
 <center><h1 style="font-family: Arial" id="dateText1"></h1></center>
 <center><h1 id="dateText2"></h1></center>
 
-<!-- Start hidden -->
 <center>
   <img 
     id="birthdayGif"
@@ -14,25 +13,25 @@
     style="display:none;"
   />
 </center>
-  
+
 <script>
   // Get the current date
   const today = new Date();
 
   // Define the cutoff date (6th October 2025, midnight)
-  const cutoff = new Date('2025-10-06T23:59:59');
+  const cutoff = new Date('2025-10-31T00:00:00');
 
-  // Check if it's after the cutoff date
-  const isAfter = today > cutoff;
+  // Check if it's before the cutoff date
+  const isBefore = today < cutoff;
 
-  // Set the text
-  const line1 = isAfter
-    ? "you didn't check this on your birthday >:("
-    : "You checked this on your birthday :D";
+  // Set the text based on whether it's before or after the date
+  const line1 = isBefore
+    ? "Its not halloween yet"
+    : "You checked this on halloween :D";
 
-  const line2 = isAfter
-    ? ""
-    : "Happy birthday!";
+  const line2 = isBefore
+    ? "Come back on halloween!"
+    : "Happy halloween (and survive your cousin) ;)!";
 
   // Update page content
   document.getElementById("dateText1").textContent = line1;
@@ -40,7 +39,7 @@
 
   // Show or hide the GIF depending on the date
   const gif = document.getElementById("birthdayGif");
-  gif.style.display = isAfter ? "inline" : "none";
+  gif.style.display = isBefore ? "none" : "inline";
 </script>
 
 </body>
